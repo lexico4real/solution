@@ -1,4 +1,5 @@
 <?php
+  $title = 'Registration';
   include_once('header.html');
 ?>
 

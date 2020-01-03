@@ -1,4 +1,5 @@
 <?php
+  $title = 'Verification';
   include_once('header.html');
 ?>
 
