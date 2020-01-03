@@ -39,9 +39,10 @@
 
               # Check pin.
               $gp = mysqli_real_escape_string( $dbc, trim( $_POST[ 'gen_pin' ] ) ) ;
-
+              $gp2 = SHA1($gp);
+              
               # Check if pin is available.
-              $q = "SELECT * FROM user WHERE gen_pin='$gp'" ;
+              $q = "SELECT * FROM user WHERE gen_pin='$gp2'" ;
               $r = @mysqli_query ( $dbc, $q ) ;
               if ( mysqli_num_rows( $r ) != 0 ) {
               
@@ -52,7 +53,7 @@
                     '<strong>Name: </strong>' .$row['name'].
                     '<br /><div><strong>Phone: </strong>'.$row['phone'].'</div>
                     <div><strong>Email: </strong>'.$row['email'].'</div>
-                    <div><strong>PIN: </strong>'.$row['gen_pin'].'</div>
+                    <div><strong>PIN: </strong>'.$gp.'</div>
                     </div>';
                   }
                 }

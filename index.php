@@ -33,6 +33,7 @@
 			<h1>Fill the form below</h1>
 			<form action="index.php" method="POST">
       <?php
+
             if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
             {
               require_once('connect_db.php');
@@ -58,7 +59,8 @@
                 # Insert generated pin.
                 $gp = 0;
                 $gp = mt_rand(1000000000,9999999999);
-                $q = "INSERT INTO user (name, phone, email, gen_pin) VALUES ('$nm', '$ph', '$em', '$gp')";
+
+                $q = "INSERT INTO user (name, phone, email, gen_pin) VALUES ('$nm', '$ph', '$em', SHA1('$gp'))";
                 $r = @mysqli_query ( $dbc, $q ) ;
 
                   
@@ -84,7 +86,7 @@
 
                   $mail->Subject = 'Verify your registration';
                   $mail->Body    = 'Thank you for registering: Your unique key is: ' .$gp. '<br />'.
-                                    '<a href="http://localhost/solution/validate.php"><br />Click here to verify your detail</a>';
+                                    '<a href="http://localhost/solution/solution/validate.php"><br />Click here to verify your detail</a>';
                  
                   if($mail->send()) {
                     echo '<div class="alert alert-success" style="text-align:center">';
