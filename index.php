@@ -12,7 +12,7 @@
     <nav class="main-nav">
       <ul>
         <li>
-          <a href="index.php">Home</a>
+          <a class="active" href="index.php">Home</a>
         </li>
         <li>
           <a href="#">About</a>
