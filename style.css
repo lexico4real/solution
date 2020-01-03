@@ -56,12 +56,11 @@ img {
 .showcase {
   grid-area: showcase;
   min-height: 400px;
-  background: url(background.jpg);
   background-size: cover;
   background-position: center;
   padding: 3rem;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   box-shadow: var(--shadow);
 }
@@ -81,8 +80,8 @@ img {
 
 input[type=text], 
 input[type=phone], 
-input[type=email], 
-select {
+input[type=email]
+{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -156,9 +155,14 @@ footer {
 }
 
 /* Media Queries */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
+
     .showcase h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+  }
+
+  .myform {
+    width: auto;
   }
 
   .main-nav ul {
