@@ -52,12 +52,6 @@ img {
   color: var(--light);
 }
 
-/* selected link */
-li a:active {
-  background: #FF3366;
-  color: #333;
-}
-
 /* Showcase */
 .showcase {
   grid-area: showcase;

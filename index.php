@@ -1,30 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-	<body>
-		<div class="wrapper mybox">
-    <!-- Navigation -->
-    <nav class="main-nav">
-      <ul>
-        <li>
-          <a class="active" href="index.php">Home</a>
-        </li>
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Services</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-    </nav>
+<?php
+  include_once('header.html');
+?>
 
     <!-- Top Container -->
     <section class="top-container">
@@ -38,13 +14,13 @@
             {
               require_once('connect_db.php');
 
-              # Insert name.
+              # To insert name.
               $nm = mysqli_real_escape_string( $dbc, trim( $_POST[ 'name' ] ) ) ;
 
-              # Insert phone.
+              # To insert phone.
               $ph = mysqli_real_escape_string( $dbc, trim( $_POST[ 'phone' ] ) ) ;
 
-              # Insert email.
+              # To insert email.
               $em = mysqli_real_escape_string( $dbc, trim( $_POST[ 'email' ] ) ) ;
 
               # Check if email is already registered.
@@ -60,17 +36,17 @@
                 $gp = 0;
                 $gp = mt_rand(1000000000,9999999999);
 
-                # Avoid duplicate random values.
+                # Check to avoid duplicate random values in database.
                 $q = "SELECT * FROM user WHERE gen_pin=SHA1('$gp')" ;
                 $r = @mysqli_query ( $dbc, $q ) ;
                 if ( mysqli_num_rows( $r ) != 0 ) {
                   header("Location: index.php");
                 }
-
+                # Insert values into database
                 $q = "INSERT INTO user (name, phone, email, gen_pin) VALUES ('$nm', '$ph', '$em', SHA1('$gp'))";
                 $r = @mysqli_query ( $dbc, $q ) ;
 
-                  
+                  // Unsing PHPMailer for sending messages
                   require 'PHPMailerAutoload.php';
                   require 'credential.php';
                   
@@ -115,11 +91,6 @@
       </header>
     </section>
 	</body>
-
-    <!-- Footer -->
-    <footer>
-      <p>Oluyinka Abubakar &copy; 2020</p>
-    </footer>
-
-  </div>
-  <!-- Wrapper Ends -->
+  <?php
+    include_once('footer.html');
+  ?>

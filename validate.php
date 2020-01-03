@@ -1,30 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-	<body>
-		<div class="wrapper mybox">
-    <!-- Navigation -->
-    <nav class="main-nav">
-      <ul>
-        <li>
-          <a href="index.php">Home</a>
-        </li>
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Services</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-    </nav>
+<?php
+  include_once('header.html');
+?>
 
     <!-- Top Container -->
     <section class="top-container">
@@ -75,11 +51,6 @@
       </header>
     </section>
 	</body>
-
-    <!-- Footer -->
-    <footer>
-      <p>Oluyinka Abubakar &copy; 2020</p>
-    </footer>
-
-  </div>
-  <!-- Wrapper Ends -->
+  <?php
+    include_once('footer.html');
+  ?>
