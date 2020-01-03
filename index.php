@@ -56,9 +56,16 @@
               </div>';
               }
               else{
-                # Insert generated pin.
+                # Create random value.
                 $gp = 0;
                 $gp = mt_rand(1000000000,9999999999);
+
+                # Avoid duplicate random values.
+                $q = "SELECT * FROM user WHERE gen_pin=SHA1('$gp')" ;
+                $r = @mysqli_query ( $dbc, $q ) ;
+                if ( mysqli_num_rows( $r ) != 0 ) {
+                  header("Location: index.php");
+                }
 
                 $q = "INSERT INTO user (name, phone, email, gen_pin) VALUES ('$nm', '$ph', '$em', SHA1('$gp'))";
                 $r = @mysqli_query ( $dbc, $q ) ;
