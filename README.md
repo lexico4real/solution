@@ -8,7 +8,24 @@ Aitechma Test Question: Design a web application that collect user's name, phone
 -	Ensure your Apache server or any web server you are using is turned on.
 -	Unzip and copy the folder to your localhost directory. In my own case, the directory is "C:\xampp\htdocs\solution"
 -	Note that the directory of the project is "localhost/solution/solution/". The first folder should be named "solution" and the second folder which is in the folder should also be named "solution".
--	All the files (i.e. background.jpg, index.php, header.html, footer.html, validate.php, style.css, credential.php, connect_db.php, PHPMailerAutoload.php) and PHPMailer folder must be pasted inside the second folder named solution.
+-	All the files (i.e. background.jpg, index.php, header.html, footer.html, validate.php, style.css, credential.php, connect_db.php, PHPMailerAutoload.php) and PHPMailer folder must be pasted inside the second folder named solution, like this:
+C:\XAMPP\HTDOCS\SOLUTION
+└───solution
+    │   background.jpg
+    │   connect_db.php
+    │   credential.php
+    │   footer.html
+    │   header.html
+    │   index.php
+    │   PHPMailerAutoload.php
+    │   README.md
+    │   solution.sql
+    │   style.css
+    │   validate.php
+    │
+    └───PHPMailer
+            class.phpmailer.php
+            class.smtp.php
 -	Import the .sql file to your database naming it "solution".
 -	Use this link to start the application (The front-end repository url): http://localhost/solution/solution/index.php .
 -	Here is the link to the verification page (The back-end repository url): http://localhost/solution/solution/validate.php
